@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import todoReducer from "../store/todos/slice";
 import stockReducer from "@src/src/store/stocks/slice";

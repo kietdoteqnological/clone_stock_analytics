@@ -22,6 +22,7 @@ import amazon from "@src/src/assets/amazon.png";
 import paypal from "@src/src/assets/paypal.png";
 import stripe from "@src/src/assets/stripe.png";
 import { LoginItem } from "../interface/auth";
+import { BrandType } from "../interface/common";
 
 const Signup = () => {
   const router = useRouter();
@@ -33,13 +34,9 @@ const Signup = () => {
     router.back();
   };
 
-  const [chooseButton, setChooseButton] = useState<
-    "shopify" | "amazon" | "stripe" | "paypal"
-  >("shopify");
+  const [chooseButton, setChooseButton] = useState<BrandType>("shopify");
 
-  const handleClickChooseButton = (
-    value: "shopify" | "amazon" | "stripe" | "paypal"
-  ) => {
+  const handleClickChooseButton = (value: BrandType) => {
     setChooseButton(value);
   };
 

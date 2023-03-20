@@ -5,11 +5,12 @@ const Tab: React.FC<{
   listItem: string[];
   onSetTab: (idx: number) => void;
   state: number;
-  onTriggerMonthData: (type: string) => void;
+  onTriggerMonthData?: (type: string) => void;
 }> = ({ listItem, onSetTab, state, onTriggerMonthData }) => {
   const handlerOnSetTab = (idx: number, name: string) => {
     onSetTab(idx);
-    if (name === "1M" || name === "5D") onTriggerMonthData(name);
+    if ((name === "1M" || name === "5D") && onTriggerMonthData)
+      onTriggerMonthData(name);
   };
 
   return (

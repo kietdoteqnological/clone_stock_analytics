@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import { createSlice } from "@reduxjs/toolkit";
 import { TodoState } from "@src/src/interface/todos";
 import { createAsyncThunk } from "@reduxjs/toolkit";
@@ -39,7 +40,7 @@ export const todoSlice = createSlice({
     }),
     builder.addCase(fetchTodosThunk.rejected, (state, { payload }) => {
       state.loading = false;
-      state.error = payload! as string;
+      if (payload) state.error = payload as string;
     }),
   ],
 });

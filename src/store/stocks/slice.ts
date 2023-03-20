@@ -117,7 +117,7 @@ export const stockSlice = createSlice({
     }),
     builder.addCase(fetchStocksThunk.rejected, (state, { payload }) => {
       state.loading = false;
-      state.error = payload! as string;
+      if (payload) state.error = payload as string;
     }),
 
     builder.addCase(searchTicketThunk.pending, (state) => {
@@ -129,7 +129,7 @@ export const stockSlice = createSlice({
     }),
     builder.addCase(searchTicketThunk.rejected, (state, { payload }) => {
       state.loadingSearch = false;
-      state.error = payload! as string;
+      if (payload) state.error = payload as string;
     }),
   ],
 });
