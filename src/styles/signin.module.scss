@@ -1,0 +1,59 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10vw;
+  background-color: white;
+  gap: 2vh;
+
+  .iconContainer {
+    background-color: white;
+    height: 7vw;
+    font-weight: bold;
+    font-size: 1.75em;
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    padding-top: 10px;
+
+    .icon {
+      color: #1e7376;
+    }
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    padding: 0px 5%;
+
+    .title {
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+
+    .des {
+      padding-top: 5px;
+      color: #969da7;
+    }
+
+    .loginForm {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .signInForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .buttonContainer {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+}

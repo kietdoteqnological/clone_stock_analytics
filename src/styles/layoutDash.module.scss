@@ -1,0 +1,32 @@
+.dashboardLayout {
+  // Flexbox Fallback
+  display: flex;
+  flex-wrap: wrap;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+
+  .header {
+    grid-area: header;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .sidebar {
+    flex: 0 0 240px;
+
+    grid-area: sidebar;
+    border-right: 1px solid #ccc;
+    background-color: white;
+  }
+  .main {
+    flex: 1;
+    grid-area: main;
+    background-color: #f9fbfc;
+    padding: 20px;
+  }
+}

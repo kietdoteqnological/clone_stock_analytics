@@ -1,0 +1,54 @@
+.modalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .modal {
+    background: white;
+    width: 44%;
+    border-radius: 5px;
+    padding: 15px;
+
+    .modalHeader {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 25px;
+    }
+
+    .modalBody {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      gap: 3em;
+      padding: 0px 1rem;
+
+      .title {
+        font-size: 1.1em;
+      }
+
+      .note {
+        color: #afb5bd;
+        padding-top: 5px;
+      }
+
+      .emailNote {
+        color: #1e7376;
+      }
+
+      .sendCodeAgain {
+        color: #1e7376;
+      }
+
+      .otpInput {
+        display: flex;
+        align-self: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .titleContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .title {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .note {
+        color: #aaa9ac;
+      }
+    }
+  }
+
+  .brandChart {
+    display: flex;
+    position: inherit;
+  }
+
+  .mainContent {
+    display: flex;
+    gap: 20px;
+
+    .tableBoxContainer {
+      flex: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

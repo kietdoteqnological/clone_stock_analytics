@@ -1,0 +1,103 @@
+.isLast {
+  height: 100%;
+}
+
+.linkBox {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 20px;
+  width: 240px;
+  border-bottom: 0.5px solid #f1f1f1;
+  align-self: center;
+  transition: all 0.3s ease;
+
+  .title {
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 20px 0px;
+    color: #6d7486;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+
+    .active {
+      background-color: #e8f2f1;
+      font-weight: 600;
+      a {
+        color: #0f393a;
+        font-weight: 600;
+      }
+    }
+    .navItem {
+      padding: 5px 10px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #e8f2f1;
+
+        a {
+          color: #0f393a;
+        }
+      }
+
+      .boxItem {
+        display: flex;
+        justify-content: space-between;
+
+        .boxIcon {
+          display: flex;
+          gap: 8px;
+          font-weight: 500;
+          color: #6d7486;
+
+          svg {
+            color: #6d7486;
+            font-weight: 600;
+          }
+        }
+
+        .notification {
+          border-radius: 5px;
+          background: #e82423;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          width: 18px;
+          height: 18px;
+          font-size: 0.8em;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.isExpand {
+  display: flex;
+  width: 78px;
+  transition: all 0.3s ease;
+
+  .navItem {
+    .boxIcon {
+      font-size: 24px;
+
+      a {
+        display: none;
+        transition: all 0.5s ease;
+      }
+    }
+
+    .notification {
+      width: 14px !important;
+      height: 14px !important;
+      font-size: 0.8em !important;
+      left: 5%;
+    }
+  }
+}

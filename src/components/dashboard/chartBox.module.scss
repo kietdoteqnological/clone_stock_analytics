@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px 10px;
+  flex: 1 1 0;
+  border-right: 1px solid #f3f3f3;
+  gap: 20px;
+  max-width: 33.33%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .money {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .percentage {
+      display: flex;
+      gap: 2px;
+      font-size: 13px;
+      border-radius: 5px;
+      justify-content: center;
+      background-color: #fdeced;
+      color: red;
+    }
+
+    .up {
+      color: green;
+      background-color: #eaf8f3;
+    }
+  }
+}

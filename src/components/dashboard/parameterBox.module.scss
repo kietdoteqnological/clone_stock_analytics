@@ -1,0 +1,22 @@
+@import "../../styles/mixin.scss";
+
+.container {
+  padding: 10px;
+  @include flexbox($direction: column);
+  flex: auto;
+  border-left: 1px solid #ececec;
+  gap: 5px;
+
+  .box {
+    @include flexbox($direction: row, $justifyContent: space-between);
+    font-size: 0.8em;
+
+    .name {
+      color: #9b9fa9;
+    }
+
+    .value {
+      font-weight: 600;
+    }
+  }
+}

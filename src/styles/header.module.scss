@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  min-height: 70px;
+  background-color: white;
+  align-items: center;
+  padding: 0px 20px;
+  width: 100%;
+  justify-content: space-between;
+
+  .searchBox {
+    width: 30%;
+  }
+
+  .rest {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+
+    :hover {
+      background-color: #f9fbfc;
+    }
+
+    .notify {
+      background-color: #f9fbfc;
+      border-radius: 50%;
+      padding: 12px;
+      margin-right: 10px;
+    }
+  }
+}
