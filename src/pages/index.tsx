@@ -10,6 +10,7 @@ import {
 import GreenButton from "../components/common/greenButton";
 import { useRouter } from "next/router";
 import { LoginItem } from "../interface/auth";
+import { toast } from "react-toastify";
 export default function Home() {
   const refForm = useRef<HTMLFormElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -26,15 +27,16 @@ export default function Home() {
     }
     if (emailRef.current?.value && pwRef.current?.value) {
       if (
-        item.username === emailRef.current.value ||
+        item.username === emailRef.current.value &&
         item.password === pwRef.current.value
       ) {
         localStorage.setItem("LOGGED", "true");
         router.push("/dashboard");
+        toast.success("Login success !!");
         return;
       }
     }
-    console.log("Wrong username or password");
+    toast.error("Wrong username or password !!");
   };
 
   const handleGoSignUp = () => {
