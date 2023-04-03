@@ -7,6 +7,7 @@ import { AppPropsWithLayout } from "../interface/common";
 import { EmptyLayout } from "../components/layout/empty";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SessionProvider } from "next-auth/react";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
@@ -14,12 +15,14 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <Provider store={store}>
-      <main className={urbanist.className}>
-        <Layout>
-          <Component {...pageProps} />
-          <ToastContainer autoClose={2000} />
-        </Layout>
-      </main>
+      <SessionProvider session={pageProps.session}>
+        <main className={urbanist.className}>
+          <Layout>
+            <Component {...pageProps} />
+            <ToastContainer autoClose={2000} />
+          </Layout>
+        </main>
+      </SessionProvider>
     </Provider>
   );
 }

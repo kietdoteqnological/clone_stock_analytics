@@ -122,3 +122,9 @@ a {
   display: flex;
   gap: 5px;
 }
+
+.test-ssr {
+  width: 100vw;
+  height: 100vh;
+  background-color: rebeccapurple;
+}

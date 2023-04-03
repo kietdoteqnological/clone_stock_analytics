@@ -2,7 +2,8 @@ import axios from "axios";
 
 export const axiosClient = axios.create({
   // baseURL: process.env.NEXT_APP_API_URL,
-  baseURL: "https://www.alphavantage.co/",
+  //baseURL: "https://www.alphavantage.co/",
+  baseURL: "https://jsonplaceholder.typicode.com/",
 });
 
 axiosClient.interceptors.response.use(

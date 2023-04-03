@@ -16,6 +16,7 @@ export interface TodoService {
   fetch: () => Promise<{
     todos: TodoDTO[];
   }>;
+  fetchDetail: (id: string) => Promise<TodoDTO>;
 }
 
 export type TodoState = {

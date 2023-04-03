@@ -9,9 +9,14 @@ import {
 } from "react-icons/io5";
 import GreenButton from "../components/common/greenButton";
 import { useRouter } from "next/router";
-import { LoginItem } from "../interface/auth";
+// import { LoginItem } from "../interface/auth";
 import { toast } from "react-toastify";
-export default function Home() {
+import { useSession, signIn, signOut, getCsrfToken } from "next-auth/react";
+import { GetServerSidePropsContext } from "next/types";
+
+export default function Home(csrfToken?: string) {
+  const { data: session } = useSession();
+  console.log(session);
   const refForm = useRef<HTMLFormElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
@@ -20,22 +25,23 @@ export default function Home() {
 
   const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const loginItem = localStorage.getItem("LOGIN_ITEM");
-    let item: LoginItem = { username: "", password: "" };
-    if (loginItem) {
-      item = JSON.parse(loginItem) as LoginItem;
-    }
-    if (emailRef.current?.value && pwRef.current?.value) {
-      if (
-        item.username === emailRef.current.value &&
-        item.password === pwRef.current.value
-      ) {
-        localStorage.setItem("LOGGED", "true");
-        router.push("/dashboard");
-        toast.success("Login success !!");
-        return;
-      }
-    }
+    // const loginItem = localStorage.getItem("LOGIN_ITEM");
+    // let item: LoginItem = { username: "", password: "" };
+    // if (loginItem) {
+    //   item = JSON.parse(loginItem) as LoginItem;
+    // }
+    // if (emailRef.current?.value && pwRef.current?.value) {
+    //   if (
+    //     item.username === emailRef.current.value &&
+    //     item.password === pwRef.current.value
+    //   ) {
+    //     localStorage.setItem("LOGGED", "true");
+    //     router.push("/dashboard");
+    //     toast.success("Login success !!");
+    //     return;
+    //   }
+    // }
+    signIn("credentials");
     toast.error("Wrong username or password !!");
   };
 
@@ -63,7 +69,7 @@ export default function Home() {
               htmlFor="email"
               icon={<IoMailOutline />}
               labelName="Email: *"
-              inputType="email"
+              inputType="text"
               inputRef={emailRef}
             />
 
@@ -85,7 +91,23 @@ export default function Home() {
             />
           </div>
         </form>
+        {session && session.user ? (
+          <>
+            <button onClick={() => signOut()}>Sign out</button>
+          </>
+        ) : (
+          <button onClick={() => signIn("google")}>Sign in</button>
+        )}
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  console.log(context);
+  return {
+    props: {
+      csrfToken: await getCsrfToken(context),
+    },
+  };
 }

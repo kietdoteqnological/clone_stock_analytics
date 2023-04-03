@@ -22,4 +22,19 @@ export const todoService: TodoService = {
       throw new Error("Đã có lỗi xảy ra khi tải danh sách todos");
     }
   },
+  fetchDetail: async (id: string) => {
+    try {
+      const data = await (await axiosClient.get<TodoRES>(`/todos/${id}`)).data;
+      console.log(data);
+      return {
+        id: data.id,
+        userId: data.userId,
+        title: data.title,
+        completed: data.completed,
+      } as TodoDTO;
+    } catch (err) {
+      console.error(err);
+      throw new Error("Đã có lỗi xảy ra khi tải danh sách todos");
+    }
+  },
 };
