@@ -11,10 +11,10 @@ import GreenButton from "../components/common/greenButton";
 import { useRouter } from "next/router";
 // import { LoginItem } from "../interface/auth";
 import { toast } from "react-toastify";
-import { useSession, signIn, signOut, getCsrfToken } from "next-auth/react";
-import { GetServerSidePropsContext } from "next/types";
+import { useSession, signIn, signOut } from "next-auth/react";
+// import { GetServerSidePropsContext } from "next/types";
 
-export default function Home(csrfToken?: string) {
+export default function Home() {
   const { data: session } = useSession();
   console.log(session);
   const refForm = useRef<HTMLFormElement>(null);
@@ -42,7 +42,7 @@ export default function Home(csrfToken?: string) {
     //   }
     // }
     signIn("credentials");
-    console.log(csrfToken);
+    // console.log(csrfToken);
     toast.error("Wrong username or password !!");
   };
 
@@ -104,11 +104,11 @@ export default function Home(csrfToken?: string) {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  console.log(context);
-  return {
-    props: {
-      csrfToken: await getCsrfToken(context),
-    },
-  };
-}
+// export async function getServerSideProps(context: GetServerSidePropsContext) {
+//   console.log(context);
+//   return {
+//     props: {
+//       csrfToken: await getCsrfToken(context),
+//     },
+//   };
+// }
