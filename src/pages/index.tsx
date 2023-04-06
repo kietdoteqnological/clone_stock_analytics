@@ -42,6 +42,7 @@ export default function Home(csrfToken?: string) {
     //   }
     // }
     signIn("credentials");
+    console.log(csrfToken);
     toast.error("Wrong username or password !!");
   };
 
